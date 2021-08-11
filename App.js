@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TouchableHighlight, Modal, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
+import { SwipeableListItem } from './SwipeableListItem';
 
 const info = [
   {   name: 'Policy1',
@@ -70,6 +71,14 @@ export default function App () {
             </ListItem.Content>
             <ListItem.Chevron/>
           </ListItem> 
+        )}
+        keyExtractor={(item, index) => index.toString()}
+          />
+
+      <FlatList 
+        data={info}
+        renderItem={({ item, index }) => (
+          <SwipeableListItem item={item} /> 
         )}
         keyExtractor={(item, index) => index.toString()}
           />

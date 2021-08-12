@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TouchableHighlight, Modal, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
+import { Swipeable } from 'react-native-gesture-handler';
 import { SwipeableListItem } from './SwipeableListItem';
 
 const info = [
@@ -78,7 +79,12 @@ export default function App () {
       <FlatList 
         data={info}
         renderItem={({ item, index }) => (
-          <SwipeableListItem item={item} /> 
+          <SwipeableListItem 
+            item={item} 
+            onSwipeFromLeft={() => alert("Swiped from left!")}
+            onRightPress={() => alert("Right button pressed")}
+            /> 
+            
         )}
         keyExtractor={(item, index) => index.toString()}
           />
